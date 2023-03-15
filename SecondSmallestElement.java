@@ -12,14 +12,17 @@ public class SecondSmallestElement{
         for(int i=0;i<array.length;i++){
             System.out.print(array[i]+" ");
         }
-        int min=array[0];
-        int secondMin=array[0];
+        int min=Integer.MAX_VALUE;
+        int secondMin=Integer.MAX_VALUE;
         for(int i=0;i<array.length;i++){
-            if(array[i]<min){
+            if(array[i]==min){
+                secondMin=min;
+            }
+            else if(array[i]<min){
                 secondMin=min;
                 min=array[i];
             }
-            else if(array[i]<secondMin &&array[i]!=min){
+            else if(array[i]<secondMin){
                 secondMin=array[i];
             }
         }
