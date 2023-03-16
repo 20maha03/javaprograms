@@ -13,22 +13,22 @@ public class FirstEvenNextOdd{
             arr[i]=input.nextInt();
         }
         System.out.println("array is:"+Arrays.toString(arr));
-        result=Seperate(arr,size);
+        result=Seperate(arr);
         System.out.println("array is:"+Arrays.toString(result));
     }
-    public static int[] Seperate(int arr[],int size){
+    public static int[] Seperate(int arr[]){
         int left=0,right=arr.length-1;
         while(left<right){
             while(arr[left]%2==0 && left<right){
                 left++;
             }
-            while(arr[left]%2==1 && left<right){
-                right++;
+            while(arr[right]%2==1 && left<right){
+                right--;
             }
             if(left<right){
                 int temp=arr[left];
                 arr[left]=arr[right];
-                arr[left]=temp;
+                arr[right]=temp;
                 left++;
                 right--;
             }
