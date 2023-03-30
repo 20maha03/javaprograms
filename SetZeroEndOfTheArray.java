@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 public class SetZeroEndOfTheArray{
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
@@ -6,33 +7,21 @@ public class SetZeroEndOfTheArray{
         int size=input.nextInt();
         int[] arr=new int[size];
         System.out.println("enter First array elements:");
-        int i=0;
-        for( i=0;i<arr.length;i++){
+        for(int i=0;i<arr.length;i++){
             arr[i]=input.nextInt();
         }
-        int l;
-        System.out.println("array is");
-        for(int i=0,l=arr.length;i<l;){
-            if(arr[i]==0){
-             i++;
+        Arrays.sort(arr);
+        System.out.println("array is:"+Arrays.toString(arr));
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==0 && arr[arr.length-1]!=0){
+              int temp=arr[arr.length-1];
+              arr[arr.length-1]=arr[i];
+              arr[i]=temp;
             }
-            else{
-                int temp=arr[j];
-                arr[j]=arr[i];
-                arr[i]=temp;
-                j++;
-                i++;
-            }
+            else
+            System.out.println(" ");
         }
-        
-        
-        while( i<arr.length)
-           arr[i++]=0;
-        System.out.print("after changes");
-        for( i=0;i<arr.length;i++){
-            System.out.println(arr[i]+" ");
-        }
-        
+        System.out.println("array is:"+Arrays.toString(arr));
         
     }
 }
