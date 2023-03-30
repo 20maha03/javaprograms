@@ -11,14 +11,23 @@ public class NegativeDominant{
         for(int i=0;i<arr.length;i++){
             arr[i]=input.nextInt();
         }
+        int negCount=0;
+        int posCount=0;
         System.out.println("array is:"+Arrays.toString(arr));
-        boolean result=test[arr];
-        System.out.print(result);
-    }
-    public static boolean test(int[] arr){    
-        arr=Arrays.stream(arr).distinct().toArray();
-        long countNeg=Arrays.stream(arr).filter(s->s<0).count();
-        long countPos=Arrays.stream(arr).filter(s->s>0).count();
-        return countNeg>countPos;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<0)
+            {
+                negCount++;
+            }
+            else{
+                posCount++;
+            }
+        }
+        if(posCount<=negCount){
+            System.out.println("its a negative dominant");
+        }
+        else
+        System.out.println("its a positive dominant");
+        
     }
 }
